@@ -38,6 +38,7 @@ while (True):
 
             client_socket.close()
             current_connect = ""
+            my_ipv4 = socket.gethostbyname(socket.gethostname())
             
         else:
             print("Not connected.")
@@ -62,6 +63,8 @@ while (True):
             res = client_socket.recv(1024)
             if (res.decode().startswith("220")):
                 current_connect = args[1]
+                if (args[1].startswith("127.")):
+                    my_ipv4 = args[1]
                 
                 print(f"Connected to {current_connect}")
                 print_inline(res.decode())
@@ -136,12 +139,13 @@ while (True):
         
         if (res.startswith("200")):
             data_socket = init_data_socket(my_ipv4, rand)
-            conn, addr = data_socket.accept()
             
             if (command.startswith("L")):
                 send_and_res(client_socket, "LIST")
             else:
                 send_and_res(client_socket, "NLST")
+            
+            conn, addr = data_socket.accept()
             
             while True:
                 data_received = conn.recv(1024)
@@ -176,9 +180,10 @@ while (True):
 
         if (res.startswith("200")):
             data_socket = init_data_socket(my_ipv4, rand)
-            conn, addr = data_socket.accept()
             
             send_and_res(client_socket, f"RETR {args[1]}")
+            
+            conn, addr = data_socket.accept()
 
             if (args[2] != ""):
                 args[1] = args[2]
@@ -219,9 +224,10 @@ while (True):
 
         if (res.startswith("200")):
             data_socket = init_data_socket(my_ipv4, rand)
-            conn, addr = data_socket.accept()
             
             send_and_res(client_socket, f"STOR {args[1]}")
+            
+            conn, addr = data_socket.accept()
     
     elif (command == "rename"):
         if (not is_socket_available(client_socket)):
