@@ -25,6 +25,7 @@ while(True):
         
         path = args[1] if (len(args) > 1) else ""
         ftp.lcd_command(path)
+
     
     elif (command.lower() == "open"):
         if (ftp.is_socket_available()):
@@ -39,7 +40,7 @@ while(True):
             if (args[1] == ""):
                 print("Usage: open host name [port]")
                 continue
-            
+
         connection_string = args[1]
         port = 21 if len(args) < 3 else args[2]
             
@@ -82,7 +83,7 @@ while(True):
         if (len(args) > 3):
             print("Usage: ls remote directory local file.")
             continue
-        
+
         destination = args[1] if (len(args) > 1) else ""
         local_file = args[2] if (len(args) > 2) else ""
         
@@ -148,7 +149,7 @@ while(True):
             
             else:
                 args.append(input("Local file "))
-            
+
         remote_file = args[1]
         local_file = args[2] if (len(args) > 2) else ""
         
@@ -160,7 +161,7 @@ while(True):
             if (args[1] == ""):
                 print("Local file put: remote file.")
                 continue
-            
+
             args.append(input("Remote file "))
             
         if (len(args) < 3):
