@@ -1,4 +1,4 @@
-ftp (file transport protocol)
+ftp (file transport protocol) การทำงานคร่าว ๆ คือ
 เริ่มการทำงานด้วยคำสั่ง open เพื่อ connect เป็นหลัก โดยคำสั่งส่วนใหญ่ request-respond จบที่ control socket ที่ port 21
 มีบางการทำงานที่เปิด data socket ในการส่งข้อมูลจะเป็น port อื่น ๆ นอกเหนือจาก port 21 ทำให้รับ-ส่งข้อมูลที่มีขนาดใหญ่ หรือการส่งหลายไฟล์ได้
 โดยจะ request port ที่ต้องการรับข้อมูลฝั่ง client ไว้ แล้วทำการ bind connection และ listen ข้อมูลที่ส่งมากับ port ที่ระบุไป
@@ -11,13 +11,17 @@ ftp (file transport protocol)
 •close(1 คะแนน)         
 •delete(2 คะแนน)        
 •disconnect(1 คะแนน)    
-•get(2 คะแนน) *
-•ls(2 คะแนน) *
+•get(2 คะแนน)
+•ls(2 คะแนน)
 •open(2 คะแนน)          
-•put(2 คะแนน) *
+•put(2 คะแนน)
 •pwd(2 คะแนน)           
 •quit(1 คะแนน)          
 •rename(2 คะแนน)        
 •user(2 คะแนน)          
-
-* bug on local (socket freeze on binding)
+•lcd
+•type
+•help
+•mkdir
+•rmdir
+•quote
