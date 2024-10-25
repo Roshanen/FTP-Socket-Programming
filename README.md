@@ -1,7 +1,5 @@
 # Build my own Socket Programmings.
 
-use Python socket to standard protocol.
+This project is an implementation of a basic FTP (File Transfer Protocol) server and client using Python sockets. It’s built as an assignment for the Computer Network subject, demonstrating the fundamental FTP commands for file transfer between a client and server over a network.
 
-I'm another world fan of Python, so embrace my coding style.
-
-Maybe comeback to clean up my files and folders later.
+Doc for FTP commands : [https://www.cs.colostate.edu/helpdocs/ftp.html](https://www.cs.colostate.edu/helpdocs/ftp.html)
